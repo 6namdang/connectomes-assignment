@@ -1,3 +1,35 @@
+Connectomics programming tasks
+Complete the tasks below using Python in one or multiple Jupyter notebooks. Ensure that the results of
+your cells are displayed when saving and submitting the notebooks. When you install libraries, you can do
+so in the notebook or outside of it.
+Task 1. Loading and displaying electron microscopy (EM) data
+The MICrONS dataset is one of the largest publicly available EM connectomics datasets with a volume of
+~1mm3
+. To display and store this data efficiently, these datasets are chunked into blocks of data and
+downsampled multiple times to enable viewing of the data at different zoom levels. Each downsampled
+layer (also called a “mip”) is stored independently. The Python library cloudvolume is the de facto
+standard for interacting with these datasets. It handles all the details of the chunking and downsampling,
+and allows interactions with these datasets similar to how you would index into a numpy array.
+Use cloudvolume to gather a slice through the EM dataset and display it as an image. Choose a
+resolution that is manageable while still providing a clear image of the data. The view should be similar to
+how you see the data here. The slice should cover the entire dataset in x and y, and 1 pixel in the z
+dimension. Follow cloudvolume’s documentation for installing it, instantiating a cloudvolume object for the
+dataset, and extracting the slice.
+A few helpful notes: The dataset uses the precomputed format, and the path to it is below. You will not
+need any credentials. Use “use
+_
+https=True” when instantiating the cloudvolume object for the dataset,
+which tells cloudvolume not to look for credentials and to be in read-only mode. If your bounding box
+exceeds the dataset bounds, you may need to use “fill
+_
+missing=True”
+.
+Path to MICrONS EM data:
+precomputed://https://bossdb-open-data.s3.amazonaws.com/iarpa
+microns/minnie/minnie65/em
+
+
+
 Task 2. Connectivity vs distance
 Connections between neurons are mediated by synapses. For each synapse, there is a presynaptic
 neuron and a postsynaptic neuron. It has been postulated multiple times that the likelihood for two
